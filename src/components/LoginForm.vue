@@ -1,4 +1,6 @@
 <template>
+  <div class="login-form">
+
   <form @submit.prevent>
     <div>
       <my-input v-model="user.login" inputType="text" placeholder="Логин" />
@@ -18,6 +20,8 @@
       {{ error }}
     </div>
   </form>
+  </div>
+
 </template>
 
 <script>

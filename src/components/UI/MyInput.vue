@@ -41,9 +41,10 @@ export default {
 
 <style scoped>
 .input {
-  width:auto;
-  border: 1px solid teal;
+  width: 100%;
   padding: 10px 15px;
   margin-top: 15px;
+  border: 1px solid teal;
+  box-sizing: border-box; /* Учитываем padding и border в расчете ширины */
 }
 </style>

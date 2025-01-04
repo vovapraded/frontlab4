@@ -20,7 +20,7 @@
     </table>
 
     <div class="button-box">
-      <my-button v-if="auth.currentUser.isAuthenticated" @click="toggleTable">
+      <my-button  @click="toggleTable">
         {{ isCollapsed ? 'Показать таблицу' : 'Скрыть таблицу' }}
       </my-button>
       <my-button v-if="auth.currentUser.isAuthenticated" @click="exit">
