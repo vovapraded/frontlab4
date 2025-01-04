@@ -48,10 +48,10 @@ export default {
     Figure,
   },
   emits: ["onInteract"],
+  inject: ["points"],
   data() {
     return {
       error: null, // Сообщение об ошибке
-      points: [], // Список точек для рендеринга
       svgKey: 0, // Ключ для принудительного обновления SVG
       radius: 1,
       MULTIPLIER: 37.5, // Множитель, который передаем дочерним компонентам

@@ -12,12 +12,13 @@
 
 
 
-<style >
+<style scoped>
 .container {
-  display: flex;
+  display: grid;
   border: teal 2px solid;
   border-radius: 10px;
   padding: 10px;
+  place-items: center;
 ;
 }
 </style>

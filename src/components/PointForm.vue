@@ -27,7 +27,7 @@
     <label>y:</label>
     <my-input v-model="y" inputType="number" placeholder="y"/>
     <div/>
-    <my-button @click="send">Отправить</my-button>
+    <my-button @click="handleSend">Отправить</my-button>
     <div class="message-container">
       <p v-if="!error">Результат: {{ result }}</p>
       <div v-if="error" class="error-message">
@@ -46,38 +46,7 @@ import MyButton from "@/components/UI/MyButton.vue";
 export default defineComponent({
   components: { MyButton, MyInput, MyCheckboxGroup },
   methods: {
-    async sendRequest(url, data) {
-      this.error = null; // Сброс ошибки перед отправкой запроса
-      try {
-        const params = new URLSearchParams(data).toString();
-        const fullUrl = `${url}?${params}`;
 
-        const response = await fetch(fullUrl, {
-          method: "POST", // Используем GET, так как параметры идут в URL
-        });
-
-        if (!response.ok) {
-          const errorText = await response.text();
-          throw new Error(`${errorText}`);
-        }
-
-        const result = await response.json();
-        this.result = result.gotIt;
-      } catch (error) {
-        this.error = error.message; // Отображение ошибки
-        console.error(`${error.message}`);
-      }
-    },
-    async send() {
-      // Важно использовать this для обращения к данным в data() компонента
-      await this.sendRequest("http://localhost:8080/point", {
-        x: this.x,
-        y: this.y,
-        r: this.radius
-      });
-      console.log(this.y);
-      this.$emit("onSendClick", this.result);
-    },
     handleRadiusChange(radius) {
       if (!radius || radius <= 0) {
         this.radius = 1;
@@ -86,6 +55,10 @@ export default defineComponent({
         this.errorRadius = null;
       }
       this.$emit("updateRadius", radius);
+    },
+    handleSend() {
+      console.log("клик произошёл");
+      this.$emit("send",this.x,this.y,this.radius);
     }
   },
   data() {
