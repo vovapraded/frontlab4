@@ -94,7 +94,7 @@ export default {
     },
     async getPoints() {
       try {
-        const response = await fetch("http://localhost:8080/points", {
+        const response = await fetch("http://185.195.24.252/api/points", {
           method: "GET", // Указываем метод GET
           headers: {
             "Content-Type": "application/json", // Устанавливаем тип данных

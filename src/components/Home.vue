@@ -60,7 +60,7 @@ export default defineComponent({
     },
   async send(x,y, radius) {
     // Важно использовать this для обращения к данным в data() компонента
-    await this.sendRequest("http://localhost:8080/point", {
+    await this.sendRequest("http://185.195.24.252:80/api/point", {
       x: x,
       y: y,
       r:radius
@@ -78,7 +78,7 @@ export default defineComponent({
       const x = ((svgPoint.x - viewBox.width / 2) / this.$refs.plotComponent.MULTIPLIER * this.$refs.pointForm.radius).toFixed(2);  // Масштабируем координаты X
       const y = (-(svgPoint.y - viewBox.height / 2) / this.$refs.plotComponent.MULTIPLIER * this.$refs.pointForm.radius).toFixed(2);
       console.log("aboba2",x,y)
-      this.sendRequest("http://localhost:8080/point", {
+      this.sendRequest("http://185.195.24.252:80/api/point", {
         x:x,
         y:y,
         r: this.$refs.pointForm.radius

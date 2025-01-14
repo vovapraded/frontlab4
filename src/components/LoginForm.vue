@@ -84,12 +84,12 @@ export default {
 
     login() {
       console.log(this.user);
-      this.sendRequest("http://localhost:8080/login", this.user);
+      this.sendRequest("http://185.195.24.252:80/api/login", this.user);
     },
 
     register() {
       console.log(this.user);
-      this.sendRequest("http://localhost:8080/register", this.user);
+      this.sendRequest("http://185.195.24.252:80/api/register", this.user);
     },
   },
 };

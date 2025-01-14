@@ -57,7 +57,7 @@ export default {
     },
     async authorization(){
       console.log('authorization');
-      const response = await fetch("http://localhost:8080/auth", {
+      const response = await fetch("http://185.195.24.252/api/auth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
